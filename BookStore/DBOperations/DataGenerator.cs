@@ -18,44 +18,31 @@ namespace BookStore.DBOperations
                 }
 
                 context.Books.AddRange(
-
                     new Book
                     {
-                     //   Id = 1,
-                        Title = "Title",
-                        Author = "Author",
-                        Description = "Description",
-                        Name = "Name",
-
-                        PublishDate = new DateTime(2001, 06, 29)
-
+                        Id = 1,
+                        GenreId = 1,
+                        PageCount = 250,
+                        PublishDate = new DateTime(2001, 06, 12),
+                        Title = "Lean Startup"
                     },
-                new Book
-                {
-                  //  Id = 3,
-                    Title = "Harland",
-                    Author = "Anil",
-                    Description = "Description",
-                    Name = "Name",
+                    new Book
+                    {
+                        Id = 2,
+                        GenreId = 2,
+                        PageCount = 350,
+                        PublishDate = new DateTime(2010, 05, 23),
+                        Title = "Herland"
+                    },
+                    new Book
+                    {
+                        Id = 3,
+                        GenreId = 3,
+                        PageCount = 540,
+                        PublishDate = new DateTime(2002, 12, 21),
+                        Title = "Dune"
+                    });
 
-                    PublishDate = new DateTime(2001, 04, 29)
-
-                },
-
-             new Book
-             {
-               //  Id = 4,
-                 Title = "Harland",
-                 Author = "Anil",
-                 Description = "Description",
-                 Name = "Name",
-
-                 PublishDate = new DateTime(2021, 06, 29)
-
-             }
-
-             );
-       
                 context.SaveChanges();
             
             }

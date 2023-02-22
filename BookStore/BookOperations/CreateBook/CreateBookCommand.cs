@@ -1,4 +1,5 @@
-﻿using BookStore.DBOperations;
+﻿using AutoMapper;
+using BookStore.DBOperations;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
@@ -11,10 +12,12 @@ namespace BookStore.BookOperations.CreateBook
 
 
         private readonly BookStoreDbContext _dbContext;
-        public CreateBookCommand(BookStoreDbContext dbContext)
+        private readonly IMapper _mapper;
+        public CreateBookCommand(BookStoreDbContext dbContext, IMapper mapper)
         {
 
             _dbContext = dbContext;
+            _mapper = mapper;
         }
         public void Handle()
         {
@@ -25,11 +28,11 @@ namespace BookStore.BookOperations.CreateBook
             {
                 throw new InvalidOperationException("Kitap  zaten Mevcut");
             }
-            book = new Book();
-            book.Title = Model.Title;
-            book.Author = Model.Author;
-            book.Description = Model.Description;
-            book.PublishDate = Model.PublishDate;
+            book = _mapper.Map<Book>(Model);
+            //book.Title = Model.Title;
+            //book.Author = Model.Author;
+            //book.Description = Model.Description;
+            //book.PublishDate = Model.PublishDate;
 
            _dbContext.Books.Add(book);
             _dbContext.SaveChanges();
@@ -40,11 +43,9 @@ namespace BookStore.BookOperations.CreateBook
         public class CreateBookModel
         {
 
-
-            public string Name { get; set; }
-            public string Description { get; set; }
-            public string Author { get; set; }
             public string Title { get; set; }
+            public int GenreId { get; set; }
+            public int PageCount { get; set; }
             public DateTime PublishDate { get; set; }
 
         }

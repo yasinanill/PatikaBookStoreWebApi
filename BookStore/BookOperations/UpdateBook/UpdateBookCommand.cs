@@ -30,9 +30,10 @@ namespace BookStore.BookOperations.UpdateBook
                 throw new InvalidOperationException("Kitap  bulunamadi");
 
             }
+            book.GenreId = Model.GenreId != default ? Model.GenreId : book.GenreId;
+            book.PageCount = Model.PageCount != default ? Model.PageCount : book.PageCount;
+            book.PublishDate = Model.PublishDate != default ? Model.PublishDate : book.PublishDate;
             book.Title = Model.Title != default ? Model.Title : book.Title;
-            book.Author = Model.Author != default ? Model.Author : book.Author;
-
 
             _dbContext.SaveChanges();
       
@@ -42,9 +43,12 @@ namespace BookStore.BookOperations.UpdateBook
         {
 
 
-            public string Author { get; set; }
+     
+            public int Id { get; set; }
             public string Title { get; set; }
-  
+            public int GenreId { get; set; }
+            public int PageCount { get; set; }
+            public DateTime PublishDate { get; set; }
 
         }
 

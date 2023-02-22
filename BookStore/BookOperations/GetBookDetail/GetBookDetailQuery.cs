@@ -3,6 +3,7 @@ using static BookStore.BookOperations.GetBooks.GetBookQuery;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using AutoMapper;
 
 namespace BookStore.BookOperations.GetBookDetail
 {
@@ -11,16 +12,15 @@ namespace BookStore.BookOperations.GetBookDetail
     public class GetBookDetailQuery
     {
         private readonly BookStoreDbContext _dbContext;
-
+        private readonly IMapper _mapper;
         public int BookId { get; set; }
 
 
-        public GetBookDetailQuery(BookStoreDbContext dbContext)
+        public GetBookDetailQuery(BookStoreDbContext dbContext, IMapper mapper)
         {
 
             _dbContext = dbContext;
-
-
+            _mapper = mapper;
         }
         public BookDetailViewModel Handle()
         {
@@ -32,11 +32,14 @@ namespace BookStore.BookOperations.GetBookDetail
             {
                 throw new InvalidOperationException("Kitap bulunamdi");
             }
-            BookDetailViewModel viewModel = new BookDetailViewModel();
-            viewModel.Title= book.Title;
-            viewModel.Description= book.Description;
-            viewModel.PublishDate= book.PublishDate.ToString("dd/MM/yyy");
-            viewModel.Author= book.Author;
+            BookDetailViewModel viewModel = _mapper.Map<BookDetailViewModel>(book);        // new BookDetailViewModel();
+            
+            
+            
+            //viewModel.Title= book.Title;
+            //viewModel.Description= book.Description;
+            //viewModel.PublishDate= book.PublishDate.ToString("dd/MM/yyy");
+            //viewModel.Author= book.Author;
          
 
             return viewModel;
@@ -45,11 +48,11 @@ namespace BookStore.BookOperations.GetBookDetail
         public class BookDetailViewModel
         {
 
-            public string Name { get; set; }
-            public string Description { get; set; }
-            public string Author { get; set; }
-            public string Title { get; set; }
 
+            public int Id { get; set; }
+            public string Title { get; set; }
+            public string Genre { get; set; }
+            public int PageCount { get; set; }
             public string PublishDate { get; set; }
 
         }
