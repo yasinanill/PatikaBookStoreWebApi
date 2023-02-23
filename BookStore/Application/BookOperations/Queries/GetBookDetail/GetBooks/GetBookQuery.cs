@@ -24,7 +24,7 @@ namespace BookStore.Application.BookOperations.Queries.GetBookDetail.GetBooks
 
         public List<BooksViewModel> Handle()
         {
-            var bookList = _dbContext.Books.OrderBy(x => x.Id).ToList();
+            var bookList = _dbContext.Books.Include(x => x.Genre).OrderBy(x => x.Id).ToList();
             List<BooksViewModel> result = _mapper.Map<List<BooksViewModel>>(bookList);
             //new List<BooksViewModel>();
 

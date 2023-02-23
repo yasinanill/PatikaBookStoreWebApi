@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="TokenOperations\" />
+    <Folder Include="Application\AuthorOperations\Commands\UpdateAuthor\" />
   </ItemGroup>
 
 </Project>

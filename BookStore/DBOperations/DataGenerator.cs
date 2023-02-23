@@ -34,9 +34,27 @@ namespace BookStore.DBOperations
                     }
                 );
 
+                context.AddRange(
+                  new Author
+                  {
+                      Id = 1,
+                      FirstName = "YASIN",
+                      LastName = "KAYA",
+                      BirthDate = new DateTime(1970, 11, 26)
+                  },
+                    new Author
+                    {
+                        Id = 2,
+                        FirstName = "ANIL",
+                        LastName = "KAYA",
+                        BirthDate = new DateTime(1970, 11, 26)
+                    }
+  
+                  );
+                context.SaveChanges();
+            
 
-
-                context.Books.AddRange(
+            context.Books.AddRange(
                     new Book
                     {
                         Id = 1,

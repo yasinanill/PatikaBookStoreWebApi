@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookStore.Application.BookOperations.Queries.GetBookDetail
 {
@@ -24,7 +25,7 @@ namespace BookStore.Application.BookOperations.Queries.GetBookDetail
         }
         public BookDetailViewModel Handle()
         {
-            var book = _dbContext.Books.Where(x => x.Id == BookId).SingleOrDefault();
+            var book = _dbContext.Books.Include(x=>x.Genre).Where(x => x.Id == BookId).SingleOrDefault();
 
 
             if (book == null)

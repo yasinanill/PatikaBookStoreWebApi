@@ -13,6 +13,7 @@ namespace BookStore.Entites
         public DateTime PublishDate { get; set; }
         public int GenreId { get; set; }
 
+        public Genre Genre { get; set; }
         public int BookId { get; set; }
     }
 }
