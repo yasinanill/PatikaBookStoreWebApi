@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BookStore.DBOperations;
+using BookStore.Entites;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;

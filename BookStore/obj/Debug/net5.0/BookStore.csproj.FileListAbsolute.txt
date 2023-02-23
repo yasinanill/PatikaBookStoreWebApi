@@ -67,3 +67,4 @@ C:\Users\yasinanil\Desktop\BookStore\BookStore\bin\Debug\net5.0\runtimes\win\lib
 C:\Users\yasinanil\Desktop\BookStore\BookStore\bin\Debug\net5.0\AutoMapper.dll
 C:\Users\yasinanil\Desktop\BookStore\BookStore\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\yasinanil\Desktop\BookStore\BookStore\bin\Debug\net5.0\FluentValidation.dll
+C:\Users\yasinanil\Desktop\BookStore\BookStore\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll

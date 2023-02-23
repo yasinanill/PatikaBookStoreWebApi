@@ -3,13 +3,13 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 
-namespace BookStore.BookOperations.UpdateBook
+namespace BookStore.Application.BookOperations.Commands.UpdateBook
 {
     public class UpdateBookCommand
     {
 
 
-    
+
         private readonly BookStoreDbContext _dbContext;
         public int BookId { get; set; }
 
@@ -36,14 +36,14 @@ namespace BookStore.BookOperations.UpdateBook
             book.Title = Model.Title != default ? Model.Title : book.Title;
 
             _dbContext.SaveChanges();
-      
+
 
         }
         public class UpdateBookModel
         {
 
 
-     
+
             public int Id { get; set; }
             public string Title { get; set; }
             public int GenreId { get; set; }

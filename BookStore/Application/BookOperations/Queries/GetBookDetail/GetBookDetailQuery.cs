@@ -1,11 +1,11 @@
 ﻿using BookStore.DBOperations;
-using static BookStore.BookOperations.GetBooks.GetBookQuery;
+using static BookStore.Application.BookOperations.Queries.GetBookDetail.GetBooks.GetBookQuery;
 using System.Collections.Generic;
 using System.Linq;
 using System;
 using AutoMapper;
 
-namespace BookStore.BookOperations.GetBookDetail
+namespace BookStore.Application.BookOperations.Queries.GetBookDetail
 {
 
 
@@ -27,20 +27,16 @@ namespace BookStore.BookOperations.GetBookDetail
             var book = _dbContext.Books.Where(x => x.Id == BookId).SingleOrDefault();
 
 
-            if (book is null)
+            if (book == null)
 
             {
                 throw new InvalidOperationException("Kitap bulunamdi");
             }
             BookDetailViewModel viewModel = _mapper.Map<BookDetailViewModel>(book);        // new BookDetailViewModel();
-            
-            
-            
-            //viewModel.Title= book.Title;
-            //viewModel.Description= book.Description;
-            //viewModel.PublishDate= book.PublishDate.ToString("dd/MM/yyy");
-            //viewModel.Author= book.Author;
-         
+
+
+
+
 
             return viewModel;
         }
