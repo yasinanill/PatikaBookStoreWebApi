@@ -27,8 +27,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Application\AuthorOperations\" />
-    <Folder Include="Application\GenreOperations\Commands\" />
+    <Folder Include="Application\AuthorOperations\Commands\CreateAuthor\" />
+    <Folder Include="Application\AuthorOperations\Queries\GetAuthors\" />
+    <Folder Include="Application\AuthorOperations\Queries\GetAuthorDetail\" />
     <Folder Include="Application\GenreOperations\Queries\" />
   </ItemGroup>
 

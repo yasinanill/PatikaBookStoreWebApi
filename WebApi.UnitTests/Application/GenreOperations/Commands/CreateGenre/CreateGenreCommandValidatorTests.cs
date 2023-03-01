@@ -1,12 +1,8 @@
-﻿using BookStore.Application.GenreOperations.Commands.CreateGenre;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static BookStore.Application.GenreOperations.Commands.CreateGenre.CreateGenreCommand;
-using WebApi.UnitTests.TestSetup;
-using Xunit;
 
 namespace WebApi.UnitTests.Application.GenreOperations.Commands.CreateGenre
 {
@@ -49,3 +45,4 @@ namespace WebApi.UnitTests.Application.GenreOperations.Commands.CreateGenre
             result.Errors.Count.Should().Be(0);
         }
     }
+}
