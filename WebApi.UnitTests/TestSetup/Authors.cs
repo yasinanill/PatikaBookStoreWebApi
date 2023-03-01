@@ -27,8 +27,8 @@ namespace WebApi.UnitTests.TestSetup
                      },
                      new Author
                      {
-                         Name = "Frank",
-                         Surname = "Herbert",
+                         Name = "Anil",
+                         Surname = "Kaya",
                          Birthday = new DateTime(1920, 10, 03)
                      }
                 );
